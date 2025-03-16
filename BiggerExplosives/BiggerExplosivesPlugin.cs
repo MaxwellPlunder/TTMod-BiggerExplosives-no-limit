@@ -20,7 +20,7 @@ namespace BiggerExplosives
         // 1.0.0
         private const string MyGUID = "com.equinox.BiggerExplosives";
         private const string PluginName = "BiggerExplosives";
-        private const string VersionString = "1.0.0";
+        private const string VersionString = "1.0.1";
 
         // Config entry key strings
         // These will appear in the config file created by BepInEx and can also be used
@@ -39,8 +39,8 @@ namespace BiggerExplosives
         public static ManualLogSource Log = new ManualLogSource(PluginName);
 
         private void Awake() {
-            ExplosionRadius = Config.Bind("General", ExplosionRadiusKey, 11, new ConfigDescription("Resulting tunnel's width will be = (radius * )2 + 1", new AcceptableValueRange<int>(0, 15)));
-            ExplosionDepth = Config.Bind("General", ExplosionDepthKey, 20, new ConfigDescription("Distance from the explosive to dig.", new AcceptableValueRange<int>(1, 30)));
+            ExplosionRadius = Config.Bind("General", ExplosionRadiusKey, 11, new ConfigDescription("Resulting tunnel's width will be = (radius * )2 + 1", new AcceptableValueRange<int>(0, 400)));
+            ExplosionDepth = Config.Bind("General", ExplosionDepthKey, 20, new ConfigDescription("Distance from the explosive to dig.", new AcceptableValueRange<int>(1, 400)));
 
             
             Logger.LogInfo($"PluginName: {PluginName}, VersionString: {VersionString} is loading...");
